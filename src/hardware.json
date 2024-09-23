@@ -1,0 +1,40 @@
+{
+    "hardwareNames": [
+        {
+            "description": "nRF52840 DK",
+            "name": "pca10056",
+            "jlink": "nRF52840_xxAA",
+            "svd": "nrf52840.svd"
+        },
+        {
+            "description": "nRF52840 Dongle",
+            "name": "pca10059",
+            "jlink": "nRF52840_xxAA",
+            "svd": "nrf52840.svd"
+        },
+        {
+            "description": "nRF52833 DK",
+            "name": "pca10100",
+            "jlink": "nRF52833_xxAA",
+            "svd": "nrf52833.svd"
+        },
+        {
+            "description": "nRF52 DK",
+            "name": "pca10040",
+            "jlink": "nRF52832_xxAA",
+            "svd": "nrf52.svd"
+        },
+        {
+            "description": "nRF51 DK",
+            "name": "pca10028",
+            "jlink": "nRF51822_xxAA",
+            "svd": "nrf51.svd"
+        },
+        {
+            "description": "nRF51 Dongle",
+            "name": "pca10031",
+            "jlink": "nRF51822_xxAA",
+            "svd": "nrf51.svd"
+        }
+    ]
+}

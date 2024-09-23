@@ -1,0 +1,141 @@
+{
+  "name": "nrf5-vscode",
+  "displayName": "nrf5-vscode",
+  "description": "Work with the nRF5 SDK in VSCode",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CedricHirschi/nrf5-vscode"
+  },
+  "publisher": "CedricHirschi",
+  "engines": {
+    "vscode": "^1.84.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "workspaceContains:**/*.emProject"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "nrf5-vscode",
+          "title": "nRF5 SDK",
+          "icon": "$(chip)"
+        }
+      ]
+    },
+    "views": {
+      "nrf5-vscode": [
+        {
+          "id": "nrf5-vscode-hardware",
+          "name": "Hardware",
+          "type": "tree"
+        },
+        {
+          "id": "nrf5-vscode-activities",
+          "name": "Activities",
+          "type": "tree"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "nrf5-vscode.project-info",
+        "title": "nRF5: Show Project Info"
+      },
+      {
+        "command": "nrf5-vscode.choose-project",
+        "title": "nRF5: Choose Project"
+      },
+      {
+        "command": "nrf5-vscode.build",
+        "title": "nRF5: Build"
+      },
+      {
+        "command": "nrf5-vscode.clean",
+        "title": "nRF5: Clean"
+      },
+      {
+        "command": "nrf5-vscode.flash",
+        "title": "nRF5: Flash"
+      },
+      {
+        "command": "nrf5-vscode.start-debug-session",
+        "title": "nRF5: Start Debug Session"
+      },
+      {
+        "command": "nrf5-vscode.recover",
+        "title": "nRF5: Recover device"
+      }
+    ],
+    "configuration": [
+      {
+        "title": "Segger Embedded Studio Path",
+        "properties": {
+          "nrf5-vscode.seggerEmbeddedStudioPath": {
+            "type": "string",
+            "default": "",
+            "description": "Path to Segger Embedded Studio installation"
+          },
+          "nrf5-vscode.jLinkPath": {
+            "type": "string",
+            "default": "",
+            "description": "Path to JLink installation"
+          }
+        }
+      }
+    ],
+    "taskDefinitions": [
+      {
+        "type": "nrf5-vscode",
+        "required": [
+          "command"
+        ],
+        "properties": {
+          "command": {
+            "type": "string",
+            "description": "The command to run.",
+            "enum": [
+              "build",
+              "flash"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "extensionDependencies": [
+    "marus25.cortex-debug",
+    "ms-vscode.cpptools",
+    "ms-vscode.vscode-serial-monitor"
+  ],
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "package": "vsce package",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.3",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.84.0",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "@vscode/test-electron": "^2.3.6",
+    "@vscode/vsce": "^2.32.0",
+    "eslint": "^8.52.0",
+    "glob": "^10.3.10",
+    "mocha": "^10.2.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "xml2js": "^0.6.2"
+  }
+}
