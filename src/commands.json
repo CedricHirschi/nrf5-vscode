@@ -1,9 +1,9 @@
 {
-    "build": "\"<sesPath>\\bin\\emBuild.exe\" \"<emProjectFile>\" -config <debugConfig> -time",
-    "clean": "\"<sesPath>\\bin\\emBuild.exe\" \"<emProjectFile>\" -config <debugConfig> -clean -time",
-    "flash": "nrfjprog --program \"<buildPath>\\<debugConfig>\\Exe\\<projectName>.hex\" --sectorerase --verify --reset --force",
+    "build": "\"<sesPath>/bin/emBuild\" \"<emProjectFile>\" -config <debugConfig> -time",
+    "clean": "\"<sesPath>/bin/emBuild\" \"<emProjectFile>\" -config <debugConfig> -clean -time",
+    "flash": "nrfjprog --program \"<buildPath>/<debugConfig>/Exe/<projectName>.hex\" --sectorerase --verify --reset --force",
     "recover": "nrfjprog --recover --force",
     "softdevice": "nrfjprog --recover --program <softdevice>",
-    "elf": "<buildPath>\\<debugConfig>\\Exe\\<projectName>.elf",
-    "svd": "<sdkPath>\\modules\\nrfx\\mdk\\<deviceSVD>"
+    "elf": "<buildPath>/<debugConfig>/Exe/<projectName>.elf",
+    "svd": "<sdkPath>/modules/nrfx/mdk/<deviceSVD>"
 }

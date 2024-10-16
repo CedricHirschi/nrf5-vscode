@@ -3,7 +3,7 @@
   "displayName": "nrf5-vscode",
   "description": "Work with the nRF5 SDK in VSCode",
   "icon": "figures/icon.png",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/CedricHirschi/nrf5-vscode"

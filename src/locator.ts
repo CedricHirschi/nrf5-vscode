@@ -13,6 +13,7 @@ export function findSES(): string {
         possiblePaths.push("/Applications/SEGGER");
     } else {
         possiblePaths.push("/opt/SEGGER");
+        possiblePaths.push("/usr/share");
     }
 
     for (const possiblePath of possiblePaths) {
@@ -42,6 +43,7 @@ export function findJLink(): string {
         possiblePaths.push("/Applications/SEGGER");
     } else {
         possiblePaths.push("/opt/SEGGER");
+        possiblePaths.push("/usr/bin");
     }
 
     for (const possiblePath of possiblePaths) {
