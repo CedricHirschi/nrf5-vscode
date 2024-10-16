@@ -19,6 +19,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - **Build** and **Flash** the selected project to a connected nRF5 device.
   - **Debug** the selected project using the [`Cortex-Debug`](https://github.com/Marus/cortex-debug) extension.
 
+## [1.0.1] - 2024-10-17
+
+### Fixed
+- Fixed an issue where the build and flash commands are defined with backslashes and .exe for all platforms.
+- Fixed an issue where some common paths are not correctly added on Linux.
+
 ---
 
 <!-- Links to compare differences between versions -->
