@@ -41,7 +41,7 @@ export class Launcher {
             runToEntryPoint: 'main',
             servertype: 'jlink',
             device: jlinkDevice!.jlink,
-            serverpath: path.join(current.jLinkPath, 'JLinkGDBServerCL.exe'),
+            serverpath: path.join(current.jLinkPath, 'JLinkGDBServerCL'),
             rttConfig: {
                 enabled: true,
                 address: "auto",

@@ -25,9 +25,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed an issue where the build and flash commands are defined with backslashes and .exe for all platforms.
 - Fixed an issue where some common paths are not correctly added on Linux.
 
+## [1.0.2] - 2024-10-17
+
+### Fixed
+- Fixed an issue where the launc configuration is defined with .exe for all platforms.
+
 ---
 
 <!-- Links to compare differences between versions -->
 [Unreleased]: https://github.com/CedricHirschi/nrf5-examples-manager/compare/v1.0.1...HEAD
 [1.0.0]: https://github.com/CedricHirschi/nrf5-examples-manager/releases/tag/v1.0.0
 [1.0.1]: https://github.com/CedricHirschi/nrf5-examples-manager/releases/tag/v1.0.1
+[1.0.2]: https://github.com/CedricHirschi/nrf5-examples-manager/releases/tag/v1.0.1
