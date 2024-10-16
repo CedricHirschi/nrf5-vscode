@@ -28,5 +28,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ---
 
 <!-- Links to compare differences between versions -->
-[Unreleased]: https://github.com/CedricHirschi/nrf5-examples-manager/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/CedricHirschi/nrf5-examples-manager/compare/v1.0.1...HEAD
 [1.0.0]: https://github.com/CedricHirschi/nrf5-examples-manager/releases/tag/v1.0.0
+[1.0.0]: https://github.com/CedricHirschi/nrf5-examples-manager/releases/tag/v1.0.1
