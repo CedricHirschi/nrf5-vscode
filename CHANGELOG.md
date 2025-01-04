@@ -30,10 +30,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Fixed an issue where the launc configuration is defined with .exe for all platforms.
 
+## [Unreleased] - 2025-01-04
+
+### Added
+- Added temporary path replacement for the nRF5 SDK in the `.emProject` file to use the project outside of the default examples folder.
+- Added printer support for the debug console (development version).
+
 ---
 
 <!-- Links to compare differences between versions -->
-[Unreleased]: https://github.com/CedricHirschi/nrf5-examples-manager/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/CedricHirschi/nrf5-examples-manager/compare/v1.0.3...HEAD
 [1.0.0]: https://github.com/CedricHirschi/nrf5-examples-manager/releases/tag/v1.0.0
 [1.0.1]: https://github.com/CedricHirschi/nrf5-examples-manager/releases/tag/v1.0.1
-[1.0.2]: https://github.com/CedricHirschi/nrf5-examples-manager/releases/tag/v1.0.1
+[1.0.2]: https://github.com/CedricHirschi/nrf5-examples-manager/releases/tag/v1.0.2

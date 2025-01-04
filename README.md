@@ -6,9 +6,12 @@ This extension provides a set of tools and settings for developing nRF5 SDK appl
 
 - **Automatic configuration** of example projects located in the `examples` folder of the nRF5 SDK.
 - **IntelliSense** for the nRF5 SDK APIs by reading the `.emProject` files.
-- **Choice** of the build target, SoftDevice and mode (debug/release) for each project.
-- **Build** and **Flash** the selected project to a connected nRF5 device.
-- **Debug** the selected project using the [`Cortex-Debug`](https://github.com/Marus/cortex-debug) extension.
+- [**Choice**](#opening-a-project) of the build target, SoftDevice and mode (debug/release) for each project.
+- [**Build** and **Flash**](#activities) the selected project to a connected nRF5 device.
+- [**Debug**](#debugging) the selected project using the [`Cortex-Debug`](https://github.com/Marus/cortex-debug) extension.
+  - [**RTT**](#rtt-real-time-transfer) (Real-Time Transfer) for debugging and logging.
+  - [**Cortex Live Watch**](#cortex-live-watch) for monitoring variables during debugging.
+- [**Temporary Path Replacement**](#temporary-path-replacement) for the nRF5 SDK in the `.emProject` file to use the project outside of the default examples folder.
 
 ## Requirements
 
@@ -17,8 +20,7 @@ This extension provides a set of tools and settings for developing nRF5 SDK appl
 - [nrfjprog](https://www.segger.com/downloads/jlink) for flashing the code and SoftDevices to the microcontroller
 - [J-Link](https://www.segger.com/downloads/jlink) for debugging (Mostly included with Segger Embedded Studio)
 
-> [!WARNING]
-> Support for other build tools and flashers are not yet implemented.
+> **WARNING:** Support for other build tools and flashers are not yet implemented.
 
 ## Usage
 
@@ -63,6 +65,10 @@ The nRF Log module can use RTT to transfer debug messages from and to the device
 LiveView enables the monitoring of variables during debugging without halting the code. You can add and remove variables to be monitored in the debug view in the activity bar, where you can also see the values.
 
 ![Live Watch](figures/liveview_activitybar.png)
+
+### Temporary Path Replacement
+
+This setting replaces all relative paths to the nRF5 SDK (`../../../../../..`) in the `.emProject` file with the `sdkPath` setting. This can be useful if you want to use the project outside of the default examples folder. While working on the project in Visual Studio Code, a backup of the original `.emProject` file is created. When closing the project, the original `.emProject` file is restored.
 
 ## Contributions
 
@@ -124,6 +130,20 @@ These commands can be used as usual inside the command palette (`Ctrl+Shift+P`) 
   Path to the J-Link directory
 
   _default:_ ``
+
+- **`nrf5-vscode.sdkPath`**
+
+  Path to the nRF5 SDK directory
+
+  _default:_ ``
+
+- **`nrf5-vscode.tempPaths`**
+
+  Temporarily replace the relative paths in the .emProject file with the sdkPath
+
+  _default:_ `false`
+
+  _requires:_ `sdkPath`
 
 ## Building it yourself
 
