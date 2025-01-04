@@ -14,6 +14,8 @@ var projectButton: vscode.StatusBarItem | undefined = undefined;
 var buildButton: vscode.StatusBarItem | undefined = undefined;
 var flashButton: vscode.StatusBarItem | undefined = undefined;
 
+export var sdkPath = vscode.workspace.getConfiguration('nrf5-vscode').get('sdkPath') as string;
+
 // a class to store the project infos
 export class Project {
     workspaceFolder: vscode.WorkspaceFolder | undefined;
@@ -71,7 +73,7 @@ export class Project {
                 }
 
                 for (const emProjectFile of emProjectFiles) {
-                    const buildModes = new Configurator(emProjectFile).init()?.getConfigs();
+                    const buildModes = new Configurator(emProjectFile).init(true)?.getConfigs();
                     result[hardwareFolder[0]] = result[hardwareFolder[0]] || {};
                     result[hardwareFolder[0]][softdeviceFolder[0]] = buildModes!.map((buildMode: any) => buildMode.label);
                 }
@@ -111,7 +113,11 @@ export class Project {
 
         await this.refreshEmProjectFile();
 
-        this.sdkPath = goBackPath(current.project.workspaceFolder!.uri.fsPath, 3);
+        if (current.tempPaths === false) {
+            this.sdkPath = goBackPath(current.project.workspaceFolder!.uri.fsPath, 3);
+        } else {
+            this.sdkPath = sdkPath;
+        }
 
         current.configurator.emProjectFile = this.emProjectFile!;
         current.configurator.init();

@@ -17,6 +17,7 @@ export var launcher = new launch.Launcher(project);
 
 export var sesPath = vscode.workspace.getConfiguration('nrf5-vscode').get('seggerEmbeddedStudioPath') as string;
 export var jLinkPath = vscode.workspace.getConfiguration('nrf5-vscode').get('jLinkPath') as string;
+export var tempPaths = vscode.workspace.getConfiguration('nrf5-vscode').get('tempPaths') as boolean;
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -171,4 +172,9 @@ export async function activate(context: vscode.ExtensionContext) {
 }
 
 // This method is called when your extension is deactivated
-export function deactivate() { }
+export function deactivate() {
+
+	// This makes sure that the temporary .emProject file is deleted
+	configurator.deinit();
+
+}

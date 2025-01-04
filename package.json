@@ -86,6 +86,20 @@
             "type": "string",
             "default": "",
             "description": "Path to JLink installation"
+          },
+          "nrf5-vscode.sdkPath": {
+            "type": "string",
+            "default": "",
+            "description": "Path to the nRF5 SDK"
+          },
+          "nrf5-vscode.tempPaths": {
+            "type": "boolean",
+            "default": false,
+            "description": "Temporarily replace the relative paths in the .emProject file with the sdkPath",
+            "required": [
+              "sdkPath"
+            ],
+            "error": "sdkPath is required"
           }
         }
       }

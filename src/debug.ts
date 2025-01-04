@@ -35,6 +35,7 @@ export class Printer {
                     tasks.writeEmitter.fire(`${line.trim()}\n\r`);
                 }
                 this.outputChannel.appendLine(`${prefix}${spaces}${line.trim()}`);
+                console.log(`> ${prefix}${spaces}${line.trim()}`);
             }
         }
     }
