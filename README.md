@@ -12,7 +12,7 @@ This extension provides a set of tools and settings for developing nRF5 SDK appl
 
 ## Requirements
 
-- [nRF5 SDK](https://www.nordicsemi.com/Software-and-Tools/Software/nrf5-vscode)
+- [nRF5 SDK](https://www.nordicsemi.com/Software-and-Tools/Software/nRF5-SDK)
 - [Segger Embedded Studio](https://www.segger.com/downloads/embedded-studio) for building the projects
 - [nrfjprog](https://www.segger.com/downloads/jlink) for flashing the code and SoftDevices to the microcontroller
 - [J-Link](https://www.segger.com/downloads/jlink) for debugging (Mostly included with Segger Embedded Studio)
