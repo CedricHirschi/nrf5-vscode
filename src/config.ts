@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import * as current from './extension';
-import { joinPath } from './common';
+import { joinPath, sterilizePath } from './common';
 import * as fs from 'fs';
 const xml2js = require('xml2js');
 
@@ -21,6 +21,8 @@ const defaultArgs = [
     "-fno-common"
 ];
 
+const examplesRelativePath = /..\/..\/..\/..\/..\/../gm;
+
 export class Configurator {
     emProjectFile: vscode.Uri;
     emProject: any;
@@ -39,11 +41,38 @@ export class Configurator {
     // this function generates the .vscode/c_cpp_properties.json file
     //   takes compiler properties from the .emProject file
     //   and generates the c_cpp_properties.json file
-    init() {
+    init(dryrun: boolean = false) {
         if (this.emProjectFile === vscode.Uri.file('')) {
             console.error('No .emProject file specified');
             return;
         }
+
+        current.printer.open('Configurator');
+
+        // If tempPaths is enabled
+        // - make a backup of the .emProject file
+        // - replace all relative paths in the .emProject file with absolute paths of sdkPath
+        if (current.tempPaths && !dryrun) {
+
+            current.printer.print('Replacing relative paths with absolute paths in .emProject file');
+
+            // make a backup of the .emProject file
+            const backupPath = sterilizePath(this.emProjectFile.fsPath + '.backup');
+            fs.copyFileSync(this.emProjectFile.fsPath, backupPath);
+
+            current.printer.print(`Backup of .emProject file created at ${backupPath}`);
+
+            // replace relative paths with absolute paths
+            // - relative path is always '../../../../../..'
+            // - absolute path is sdkPath
+            // - replace all occurrences of relative path with absolute path
+            const emProject = fs.readFileSync(this.emProjectFile.fsPath, 'utf8');
+            const replacedEmProject = emProject.replace(examplesRelativePath, current.project.sdkPath!);
+            fs.writeFileSync(this.emProjectFile.fsPath, Buffer.from(replacedEmProject, 'utf8'));
+
+            current.printer.print('Replaced relative paths with absolute paths in .emProject file');
+        }
+
         // .emProject is in XML format
         //   we need to parse it to get the compiler properties
         const parser = new xml2js.Parser();
@@ -83,7 +112,31 @@ export class Configurator {
         this.config['includePaths'].push(joinPath(sdkPath, 'modules', '**'));
         this.config['includePaths'].push(joinPath(current.sesPath, 'include', '**'));
 
+        current.printer.close();
+
         return this;
+    }
+
+    deinit() {
+
+        current.printer.open('Configurator');
+
+        if (current.tempPaths) {
+            current.printer.print('Restoring .emProject file');
+
+            // Delete the current .emProject file
+            fs.unlinkSync(this.emProjectFile.fsPath);
+
+            current.printer.print(`Deleted .emProject file at ${this.emProjectFile.fsPath}`);
+
+            // Restore the backup .emProject file
+            const backupPath = sterilizePath(this.emProjectFile.fsPath + '.backup');
+            fs.renameSync(backupPath, this.emProjectFile.fsPath);
+
+            current.printer.print(`Restored .emProject file from ${backupPath}`);
+        }
+
+        current.printer.close();
     }
 
     getConfigs(): vscode.QuickPickItem[] {
