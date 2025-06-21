@@ -10,7 +10,7 @@
   },
   "publisher": "CedricHirschi",
   "engines": {
-    "vscode": "^1.84.0"
+    "vscode": "^1.100.0"
   },
   "categories": [
     "Other"
@@ -34,12 +34,14 @@
         {
           "id": "nrf5-vscode-hardware",
           "name": "Hardware",
-          "type": "tree"
+          "type": "tree",
+          "icon": "$(device-desktop)"
         },
         {
           "id": "nrf5-vscode-activities",
           "name": "Activities",
-          "type": "tree"
+          "type": "tree",
+          "icon": "$(list-unordered)"
         }
       ]
     },
@@ -138,17 +140,17 @@
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@types/mocha": "^10.0.3",
-    "@types/node": "18.x",
-    "@types/vscode": "^1.84.0",
-    "@typescript-eslint/eslint-plugin": "^6.9.0",
-    "@typescript-eslint/parser": "^6.9.0",
-    "@vscode/test-electron": "^2.3.6",
-    "@vscode/vsce": "^2.32.0",
-    "eslint": "^8.52.0",
-    "glob": "^10.3.10",
-    "mocha": "^10.2.0",
-    "typescript": "^5.2.2"
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.x",
+    "@types/vscode": "^1.100.0",
+    "@typescript-eslint/eslint-plugin": "^8.34.0",
+    "@typescript-eslint/parser": "^8.34.0",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.5.0",
+    "eslint": "^9.28.0",
+    "glob": "^11.0.2",
+    "mocha": "^11.6.0",
+    "typescript": "^5.8.3"
   },
   "dependencies": {
     "xml2js": "^0.6.2"
