@@ -1,7 +1,5 @@
 # nRF5 SDK VSCode Extension
 
-
-
 This extension provides a set of tools and settings for developing nRF5 SDK applications in Visual Studio Code instead of Segger Embedded Studio.
 
 - **Automatic configuration** of example projects located in the `examples` folder of the nRF5 SDK.
@@ -39,10 +37,11 @@ You should get a confirmation message that the project has been configured succe
 ### Activities
 
 You can build, clean, flash and debug the project using either
+
 - The provided commands in the command palette (`Ctrl+Shift+P`)
 - The activity bar on the left side of the window
 - The status bar at the bottom of the window
-	
+
 ![Activities View](figures/activities_activitybar.png)
 
 ![Activities View](figures/activities_statusbar.png)
@@ -56,7 +55,6 @@ The debug session is a standard [`Cortex-Debug`](https://github.com/Marus/cortex
 The nRF Log module can use RTT to transfer debug messages from and to the device. Any initialized channel can be viewed in the `TERMINAL` tab.
 
 ![RTT Terminal](figures/rtt_terminal.png)
-
 
 #### Cortex Live Watch
 
@@ -115,7 +113,7 @@ These commands can be used as usual inside the command palette (`Ctrl+Shift+P`) 
 
 - **`nrf5-vscode.seggerEmbeddedStudioPath`**
   
-  Path to the Segger Embedded Studio directory 
+  Path to the Segger Embedded Studio directory
   
   _default:_ ``
 
@@ -124,6 +122,20 @@ These commands can be used as usual inside the command palette (`Ctrl+Shift+P`) 
   Path to the J-Link directory
 
   _default:_ ``
+
+- **`nrf5-vscode.sdkPath`**
+
+  Path to the nRF5 SDK
+
+  _default:_ ``
+
+- **`nrf5-vscode.tempPaths`**
+
+  Temporarily replace the relative paths in the .emProject file with the sdkPath
+
+  _default:_ False
+  
+  _requires:_ `nrf5-vscode.sdkPath`
 
 ## Building it yourself
 

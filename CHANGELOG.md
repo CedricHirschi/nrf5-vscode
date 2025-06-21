@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2024-09-23
 
 ### Added
+
 - First stable release with core features:
   - **Automatic configuration** of example projects located in the `examples` folder of the nRF5 SDK.
   - **IntelliSense** for the nRF5 SDK APIs by reading the `.emProject` files.
@@ -22,18 +23,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.1] - 2024-10-17
 
 ### Fixed
+
 - Fixed an issue where the build and flash commands are defined with backslashes and .exe for all platforms.
 - Fixed an issue where some common paths are not correctly added on Linux.
 
 ## [1.0.2] - 2024-10-17
 
 ### Fixed
+
 - Fixed an issue where the launc configuration is defined with .exe for all platforms.
+
+## [1.0.3] - 2025-06-21
+
+### Added
+
+- Added the `tempPaths` option to temporarily use different paths for the nRF5 SDK inside `emProject` files.
 
 ---
 
 <!-- Links to compare differences between versions -->
-[Unreleased]: https://github.com/CedricHirschi/nrf5-examples-manager/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/CedricHirschi/nrf5-examples-manager/compare/v1.0.3...HEAD
 [1.0.0]: https://github.com/CedricHirschi/nrf5-examples-manager/releases/tag/v1.0.0
 [1.0.1]: https://github.com/CedricHirschi/nrf5-examples-manager/releases/tag/v1.0.1
-[1.0.2]: https://github.com/CedricHirschi/nrf5-examples-manager/releases/tag/v1.0.1
+[1.0.2]: https://github.com/CedricHirschi/nrf5-examples-manager/releases/tag/v1.0.2
+[1.0.3]: https://github.com/CedricHirschi/nrf5-examples-manager/releases/tag/v1.0.3
